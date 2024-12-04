@@ -13,8 +13,8 @@ Solutions are organized by day:
 Each day's folder contains:
 
 - `inputs.txt`: Puzzle input
-- `solp1.py`: Solution for Part 1
-- `solp2.py`: Solution for Part 2
+- `solp1.swift`: Solution for Part 1
+- `solp2.swift`: Solution for Part 2
 
 ## Running Solutions
 
@@ -33,5 +33,5 @@ Current Stars: 6\*
 ```bash
 git clone https://github.com/vishrutkmr7/AdventOfCode2024.git
 cd AdventOfCode2024
-python3 solp[x].py  # For part x
+swift solp[x].py  # For part x
 ```
