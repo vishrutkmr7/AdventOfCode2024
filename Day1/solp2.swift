@@ -21,10 +21,15 @@ func calculateSimilarityScore(leftList: [Int], rightList: [Int]) -> Int {
 // Parse the input data
 var leftNumbers: [Int] = []
 var rightNumbers: [Int] = []
+// Get the current file's directory
+let currentFilePath = #file
+let currentDirectory = URL(fileURLWithPath: currentFilePath).deletingLastPathComponent().path
 
-// Read from inputs.txt
-if let contents = try? String(contentsOfFile: "inputs.txt", encoding: .utf8) {
-    let lines = contents.components(separatedBy: .newlines)
+// Construct path to inputs.txt in the same directory
+let inputPath = currentDirectory + "/inputs.txt"
+
+if let fileContents = try? String(contentsOfFile: inputPath, encoding: .utf8) {
+    let lines = fileContents.components(separatedBy: .newlines)
     for line in lines {
         if !line.isEmpty {
             let numbers = line.split(separator: " ").compactMap { Int($0) }

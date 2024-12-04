@@ -26,8 +26,14 @@ func calculateMulSum(_ text: String) -> Int {
     return total
 }
 
-// Read and process the input file
-if let fileContents = try? String(contentsOfFile: "inputs.txt", encoding: .utf8) {
+// Get the current file's directory
+let currentFilePath = #file
+let currentDirectory = URL(fileURLWithPath: currentFilePath).deletingLastPathComponent().path
+
+// Construct path to inputs.txt in the same directory
+let inputPath = currentDirectory + "/inputs.txt"
+
+if let fileContents = try? String(contentsOfFile: inputPath, encoding: .utf8) {
     var totalSum = 0
     let lines = fileContents.components(separatedBy: .newlines)
 

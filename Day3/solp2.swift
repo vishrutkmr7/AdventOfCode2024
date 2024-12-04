@@ -58,9 +58,16 @@ func calculateEnabledMultiplications(_ memory: String) -> Int {
     return total
 }
 
+// Get the current file's directory
+let currentFilePath = #file
+let currentDirectory = URL(fileURLWithPath: currentFilePath).deletingLastPathComponent().path
+
+// Construct path to inputs.txt in the same directory
+let inputPath = currentDirectory + "/inputs.txt"
+
 // Read and process the input file
 do {
-    let memory = try String(contentsOfFile: "inputs.txt", encoding: .utf8)
+    let memory = try String(contentsOfFile: inputPath, encoding: .utf8)
     let result = calculateEnabledMultiplications(memory)
     print("Sum of enabled multiplications: \(result)")
 } catch {

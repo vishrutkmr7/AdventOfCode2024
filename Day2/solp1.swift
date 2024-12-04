@@ -39,9 +39,15 @@ func isSafeReport(_ levels: [Int]) -> Bool {
 
 // Parse input and count safe reports
 var safeCount = 0
+// Get the current file's directory
+let currentFilePath = #file
+let currentDirectory = URL(fileURLWithPath: currentFilePath).deletingLastPathComponent().path
 
-if let contents = try? String(contentsOfFile: "inputs.txt", encoding: .utf8) {
-    let lines = contents.components(separatedBy: .newlines)
+// Construct path to inputs.txt in the same directory
+let inputPath = currentDirectory + "/inputs.txt"
+
+if let fileContents = try? String(contentsOfFile: inputPath, encoding: .utf8) {
+    let lines = fileContents.components(separatedBy: .newlines)
 
     for line in lines {
         let trimmed = line.trimmingCharacters(in: .whitespaces)
